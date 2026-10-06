@@ -14,8 +14,7 @@ async function loadMarkdown() {
         }
         
         const markdown = await response.text();
-        const converter = new showdown.Converter({ tables: true });
-        const html = converter.makeHtml(markdown);
+        const converter = new showdown.Converter({ tables: true, literalMidWordUnderscores: true });        const html = converter.makeHtml(markdown);
         document.getElementById("content").innerHTML = html;
 
         // Typeset math if MathJax is available
